@@ -4,6 +4,7 @@ import { Tabs } from "../../components/Tabs";
 import { useEditor } from "../../hooks/useEditor";
 import { useTabs } from "../../hooks/useTabs";
 import { TabTypes } from "../../interfaces";
+import { Checkbox } from "@chakra-ui/react";
 
 export const Main = () => {
   const { jsonInput, changeJsonInput, prettifyOnBlur } = useEditor();
@@ -20,7 +21,11 @@ export const Main = () => {
         />
       )}
 
-      {currentTab === TabTypes.FORM && <div>Hello</div>}
+      {currentTab === TabTypes.FORM && (
+        <Checkbox value={123} defaultChecked colorScheme="red">
+          Hello
+        </Checkbox>
+      )}
     </>
   );
 };
