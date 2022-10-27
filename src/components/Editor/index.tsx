@@ -1,5 +1,4 @@
 import React from "react";
-import { useEditor } from "../../hooks/useEditor";
 
 interface IProps {
   changeJsonInput: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
