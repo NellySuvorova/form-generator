@@ -6,7 +6,6 @@ import { Form } from "../../components/Form";
 import { useEditor } from "../../hooks/useEditor";
 import { useTabs } from "../../hooks/useTabs";
 import { TabTypes } from "../../interfaces";
-import { Checkbox } from "@chakra-ui/react";
 
 export const Main = () => {
   const { jsonInput, changeJsonInput, prettifyOnBlur } = useEditor();
