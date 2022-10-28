@@ -1,24 +1,10 @@
-import { FieldTypes, FormConfig } from "../interfaces";
+import { FormConfig } from "../interfaces";
 
 export const formAdapter = (jsonInput: string) => {
   const formConfig = JSON.parse(jsonInput);
 
+  // судя по всему нужно поддержать тип кнопки - например submit
   const { title, buttons, items } = formConfig as FormConfig;
 
-  const formFields = items.reduce(
-    (acc, cur) => {
-      acc[cur.type].push(cur);
-      return acc;
-    },
-    {
-      [FieldTypes.CHECKBOX]: [],
-      [FieldTypes.DATE]: [],
-      [FieldTypes.NUMBER]: [],
-      [FieldTypes.RADIO]: [],
-      [FieldTypes.TEXT]: [],
-      [FieldTypes.TEXTAREA]: [],
-    }
-  );
-
-  return { title, buttons, formFields };
+  return { title, buttons, formFields: items };
 };
