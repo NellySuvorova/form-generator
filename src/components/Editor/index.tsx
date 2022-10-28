@@ -1,16 +1,12 @@
-import React from "react";
+import React from 'react'
 
 interface IProps {
-  changeJsonInput: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  jsonInput: string;
-  prettifyOnBlur: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  changeJsonInput: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+  jsonInput: string
+  prettifyOnBlur: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-export const Editor: React.FC<IProps> = ({
-  changeJsonInput,
-  jsonInput,
-  prettifyOnBlur,
-}) => {
+export const Editor: React.FC<IProps> = ({ changeJsonInput, jsonInput, prettifyOnBlur }) => {
   return (
     <textarea
       cols={50}
@@ -19,5 +15,5 @@ export const Editor: React.FC<IProps> = ({
       value={jsonInput}
       onBlur={prettifyOnBlur}
     />
-  );
-};
+  )
+}

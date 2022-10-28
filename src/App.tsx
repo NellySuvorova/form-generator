@@ -1,18 +1,14 @@
-import { useState } from "react";
-import { Main } from "./controllers/Main";
-import "./App.css";
-import { ChakraProvider } from "@chakra-ui/react";
+import React from 'react'
+import { ChakraProvider } from '@chakra-ui/react'
+import { Main } from './controllers/Main'
+import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export function App() {
   return (
     <div className="App">
       <ChakraProvider>
         <Main />
       </ChakraProvider>
     </div>
-  );
+  )
 }
-
-export default App;

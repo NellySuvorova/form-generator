@@ -1,8 +1,8 @@
-import { TabTypes } from "../../interfaces";
+import { TabTypes } from '../../interfaces'
 
 interface IProps {
-  changeTab: (tab: TabTypes) => void;
-  currentTab: TabTypes;
+  changeTab: (tab: TabTypes) => void
+  currentTab: TabTypes
 }
 
 // TODO
@@ -13,5 +13,5 @@ export const Tabs: React.FC<IProps> = ({ changeTab, currentTab }) => {
       <button onClick={() => changeTab(TabTypes.EDITOR)}>Editor</button>
       <button onClick={() => changeTab(TabTypes.FORM)}>Form</button>
     </div>
-  );
-};
+  )
+}
