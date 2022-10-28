@@ -4,17 +4,16 @@
     "es2021": true,
     "node": true
   },
-  "extends": [
-    "airbnb",
-    "airbnb/hooks",
-    "airbnb-typescript",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
+  "extends": ["airbnb", "airbnb/hooks", "prettier"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "extends": ["airbnb-typescript", "plugin:@typescript-eslint/recommended", "prettier"]
+    }
   ],
-  "overrides": [],
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "import/prefer-default-export": "off",
