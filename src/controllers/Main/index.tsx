@@ -8,7 +8,7 @@ import { useTabs } from '../../hooks/useTabs'
 import { TabTypes } from '../../interfaces'
 
 export const Main = () => {
-  const { jsonInput, changeJsonInput, prettifyOnBlur } = useEditor()
+  const { jsonInput, changeJsonInput, prettifyOnBlur, isError } = useEditor()
   const { changeTab, currentTab } = useTabs()
 
   return (
@@ -20,6 +20,7 @@ export const Main = () => {
             jsonInput={jsonInput}
             changeJsonInput={changeJsonInput}
             prettifyOnBlur={prettifyOnBlur}
+            isError={isError}
           />
         )}
         {currentTab === TabTypes.FORM && <Form jsonInput={jsonInput} />}

@@ -11,6 +11,8 @@ import {
   Box,
   RadioGroup,
   Stack,
+  Button,
+  Text,
 } from '@chakra-ui/react'
 
 import { formAdapter } from '../../utils/form-adapter'
@@ -64,15 +66,28 @@ const renderFormElement = (item: FormItem) => {
 }
 
 // не забыть плейсхолдеры?
+// у формы должен быть бэкграунд, не включающий тайтл и паддинг
 export const Form: React.FC<IProps> = ({ jsonInput }) => {
   const { title, buttons, formFields } = formAdapter(jsonInput)
 
   return (
     <Box mt="10">
+      {title && (
+        <Text fontSize="xl" align="center" style={{ fontWeight: 600 }}>
+          {title}
+        </Text>
+      )}
       <form>
         {formFields.map((item: FormItem) => (
           <FormItemWrapper item={item}>{renderFormElement(item)}</FormItemWrapper>
         ))}
+        <Stack direction="row" mt="10" justifyContent="space-between">
+          {buttons.map((button: string) => (
+            <Button colorScheme="orange" key={button}>
+              {button}
+            </Button>
+          ))}
+        </Stack>
       </form>
     </Box>
   )
