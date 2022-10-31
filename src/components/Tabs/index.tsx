@@ -1,3 +1,4 @@
+import { Button, Stack } from '@chakra-ui/react'
 import { TabTypes } from '../../interfaces'
 
 interface IProps {
@@ -5,13 +6,26 @@ interface IProps {
   currentTab: TabTypes
 }
 
-// TODO
-// 1. make buttons disable on active tab and change color
 export const Tabs: React.FC<IProps> = ({ changeTab, currentTab }) => {
+  const isEditorOpen = currentTab === TabTypes.EDITOR
   return (
-    <div>
-      <button onClick={() => changeTab(TabTypes.EDITOR)}>Editor</button>
-      <button onClick={() => changeTab(TabTypes.FORM)}>Form</button>
-    </div>
+    <Stack direction="row" justifyContent="center" spacing="24px">
+      <Button
+        onClick={() => changeTab(TabTypes.EDITOR)}
+        size="lg"
+        type="button"
+        variant={isEditorOpen ? 'solid' : 'outline'}
+      >
+        Editor
+      </Button>
+      <Button
+        onClick={() => changeTab(TabTypes.FORM)}
+        size="lg"
+        type="button"
+        variant={!isEditorOpen ? 'solid' : 'outline'}
+      >
+        Form
+      </Button>
+    </Stack>
   )
 }
