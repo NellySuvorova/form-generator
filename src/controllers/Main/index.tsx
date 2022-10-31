@@ -1,4 +1,4 @@
-import React from 'react'
+import { Container } from '@chakra-ui/react'
 import { Editor } from '../../components/Editor'
 import { Tabs } from '../../components/Tabs'
 import { Form } from '../../components/Form'
@@ -14,15 +14,16 @@ export const Main = () => {
   return (
     <>
       <Tabs changeTab={changeTab} currentTab={currentTab} />
-      {currentTab === TabTypes.EDITOR && (
-        <Editor
-          jsonInput={jsonInput}
-          changeJsonInput={changeJsonInput}
-          prettifyOnBlur={prettifyOnBlur}
-        />
-      )}
-
-      {currentTab === TabTypes.FORM && <Form jsonInput={jsonInput} />}
+      <Container>
+        {currentTab === TabTypes.EDITOR && (
+          <Editor
+            jsonInput={jsonInput}
+            changeJsonInput={changeJsonInput}
+            prettifyOnBlur={prettifyOnBlur}
+          />
+        )}
+        {currentTab === TabTypes.FORM && <Form jsonInput={jsonInput} />}
+      </Container>
     </>
   )
 }
