@@ -5,9 +5,15 @@ interface IProps {
   changeJsonInput: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
   jsonInput: string
   prettifyOnBlur: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+  isError: boolean
 }
 
-export const Editor: React.FC<IProps> = ({ changeJsonInput, jsonInput, prettifyOnBlur }) => (
+export const Editor: React.FC<IProps> = ({
+  changeJsonInput,
+  jsonInput,
+  prettifyOnBlur,
+  isError,
+}) => (
   <Box mt="10">
     <Textarea
       cols={50}
@@ -15,6 +21,7 @@ export const Editor: React.FC<IProps> = ({ changeJsonInput, jsonInput, prettifyO
       onChange={changeJsonInput}
       value={jsonInput}
       onBlur={prettifyOnBlur}
+      isInvalid={isError}
     />
   </Box>
 )

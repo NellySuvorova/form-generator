@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { prettyPrint } from '../utils'
-import { FieldTypes, FormConfig } from '../interfaces'
+import { FieldTypes } from '../interfaces'
 
-const obj = {
+const defaultObject = {
   title: 'My custom form',
   buttons: ['OK', 'Cancel', 'Apply'],
   items: [
@@ -12,25 +12,32 @@ const obj = {
     },
   ],
 }
-// TODO сделать вывод ошибки для инвалидного JSON
-const defaultValue = prettyPrint(JSON.stringify(obj))
+
+const defaultJson = prettyPrint(JSON.stringify(defaultObject))
 
 export const useEditor = () => {
-  const [jsonInput, setJsonInput] = useState(defaultValue)
+  const [jsonInput, setJsonInput] = useState(defaultJson)
+  const [isError, setJsonError] = useState(false)
 
   const changeJsonInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const value = e.target.value
+    const { value } = e.target
     setJsonInput(value)
   }
 
   const prettifyOnBlur = () => {
-    const prettyValue = prettyPrint(jsonInput)
-    setJsonInput(prettyValue)
+    try {
+      const prettyValue = prettyPrint(jsonInput)
+      setJsonError(false)
+      setJsonInput(prettyValue)
+    } catch {
+      setJsonError(true)
+    }
   }
 
   return {
     changeJsonInput,
     jsonInput,
     prettifyOnBlur,
+    isError,
   }
 }
