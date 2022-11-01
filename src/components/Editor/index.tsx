@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Textarea } from '@chakra-ui/react'
 
 interface IProps {
