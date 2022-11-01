@@ -12,9 +12,9 @@ export enum FieldTypes {
   RADIO = 'radio',
 }
 
-export type FormItem = { label: string; type: FieldTypes; options?: string[] }
+export type FormField = { label: string; type: FieldTypes; options?: string[] }
 export interface FormConfig {
   buttons: string[]
   title: string
-  items: FormItem[]
+  items: FormField[]
 }

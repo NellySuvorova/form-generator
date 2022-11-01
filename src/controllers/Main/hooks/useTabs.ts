@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { TabTypes } from '../interfaces'
+import { useState } from 'react'
+import { TabTypes } from '../../../interfaces'
 
 export const useTabs = () => {
   const [currentTab, setTabs] = useState(TabTypes.EDITOR)

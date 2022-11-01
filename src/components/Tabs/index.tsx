@@ -8,6 +8,7 @@ interface IProps {
 
 export const Tabs: React.FC<IProps> = ({ changeTab, currentTab }) => {
   const isEditorOpen = currentTab === TabTypes.EDITOR
+
   return (
     <Stack direction="row" justifyContent="center" spacing="24px">
       <Button
