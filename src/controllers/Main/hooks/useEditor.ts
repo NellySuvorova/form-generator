@@ -1,3 +1,4 @@
+import { FieldTypes } from 'interfaces'
 import React, { useState } from 'react'
 import { prettyPrint } from 'utils/pretty-print-json'
 
@@ -24,10 +25,23 @@ export const useEditor = () => {
     }
   }
 
+  const insertDataToInput = (type: FieldTypes) => {
+    const field = { type, label: '' }
+
+    const currentObject = JSON.parse(jsonInput)
+
+    const { items } = currentObject
+    const newItems = [...items, field]
+    const newObject = { ...currentObject, items: newItems }
+
+    setJsonInput(prettyPrint(JSON.stringify(newObject)))
+  }
+
   return {
     changeJsonInput,
     jsonInput,
     prettifyOnBlur,
     isError,
+    insertDataToInput,
   }
 }
