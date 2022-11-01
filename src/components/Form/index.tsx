@@ -1,3 +1,5 @@
+import React from 'react'
+
 import {
   Checkbox,
   Input,
@@ -14,6 +16,7 @@ import {
   Button,
   Text,
 } from '@chakra-ui/react'
+import { capitalizeFirstLetter } from '../../utils/capitalize-first-letter'
 
 import { formAdapter } from '../../utils/form-adapter'
 import { FormItem, FieldTypes } from '../../interfaces'
@@ -29,7 +32,7 @@ const renderFormElement = (item: FormItem) => {
     case FieldTypes.CHECKBOX:
       return (
         <Checkbox id={item.label} size="lg">
-          {item.label}
+          {capitalizeFirstLetter(item.label)}
         </Checkbox>
       )
     case FieldTypes.TEXT:
@@ -70,14 +73,18 @@ const renderFormElement = (item: FormItem) => {
 export const Form: React.FC<IProps> = ({ jsonInput }) => {
   const { title, buttons, formFields } = formAdapter(jsonInput)
 
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+  }
+
   return (
     <Box mt="10">
       {title && (
-        <Text fontSize="xl" align="center" style={{ fontWeight: 600 }}>
+        <Text fontSize="2xl" fontWeight={600} align="center" mb="10">
           {title}
         </Text>
       )}
-      <form>
+      <form onSubmit={onSubmit}>
         {formFields.map((item: FormItem) => (
           <FormItemWrapper item={item}>{renderFormElement(item)}</FormItemWrapper>
         ))}
@@ -87,6 +94,7 @@ export const Form: React.FC<IProps> = ({ jsonInput }) => {
               {button}
             </Button>
           ))}
+          {false && <Button type="submit">Submit</Button>}
         </Stack>
       </form>
     </Box>
