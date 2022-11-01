@@ -1,7 +1,7 @@
-import React from 'react'
 import { FormControl, FormLabel, Stack } from '@chakra-ui/react'
-import { FormField, FieldTypes } from '../../../interfaces'
-import { capitalizeFirstLetter } from '../../../utils/capitalize-first-letter'
+
+import { FormField, FieldTypes } from 'interfaces'
+import { capitalizeFirstLetter } from 'utils/capitalize-first-letter'
 
 interface Props {
   field: FormField

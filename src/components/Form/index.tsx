@@ -1,12 +1,10 @@
-import React from 'react'
-
 import { Box, Stack, Button, Text } from '@chakra-ui/react'
 
-import { formAdapter } from '../../utils/form-adapter'
-import { FormField } from '../../interfaces'
+import { FormElementContainer } from 'components/ui/FormElementContainer'
+import { FormElement } from 'components/ui/FormElement'
 
-import { FormElementContainer } from '../ui/FormElementContainer'
-import { FormElement } from '../ui/FormElement'
+import { formAdapter } from 'utils/form-adapter'
+import { FormField } from 'interfaces'
 
 interface IProps {
   jsonInput: string

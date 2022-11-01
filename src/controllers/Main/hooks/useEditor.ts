@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { prettyPrint } from '../../../utils/pretty-print-json'
+import { prettyPrint } from 'utils/pretty-print-json'
 
 import { defaultInputValue } from './defaults'
 

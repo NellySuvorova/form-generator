@@ -1,11 +1,11 @@
 import { Container } from '@chakra-ui/react'
-import { Editor } from '../../components/Editor'
-import { Tabs } from '../../components/Tabs'
-import { Form } from '../../components/Form'
+import { Editor } from 'components/Editor'
+import { Tabs } from 'components/Tabs'
+import { Form } from 'components/Form'
+import { TabTypes } from 'interfaces'
 
 import { useEditor } from './hooks/useEditor'
 import { useTabs } from './hooks/useTabs'
-import { TabTypes } from '../../interfaces'
 
 export const Main = () => {
   const { jsonInput, changeJsonInput, prettifyOnBlur, isError } = useEditor()

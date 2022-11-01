@@ -1,5 +1,6 @@
 import { Button, Stack } from '@chakra-ui/react'
-import { TabTypes } from '../../interfaces'
+
+import { TabTypes } from 'interfaces'
 
 interface IProps {
   changeTab: (tab: TabTypes) => void

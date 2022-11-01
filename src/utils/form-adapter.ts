@@ -1,4 +1,4 @@
-import { FormConfig } from '../interfaces'
+import { FormConfig } from 'interfaces'
 
 // check duplicated fields
 export const formAdapter = (jsonInput: string) => {

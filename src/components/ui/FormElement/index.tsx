@@ -11,8 +11,9 @@ import {
   RadioGroup,
   Stack,
 } from '@chakra-ui/react'
-import { capitalizeFirstLetter } from '../../../utils/capitalize-first-letter'
-import { FormField, FieldTypes } from '../../../interfaces'
+
+import { capitalizeFirstLetter } from 'utils/capitalize-first-letter'
+import { FormField, FieldTypes } from 'interfaces'
 
 export const FormElement = ({ field }: { field: FormField }) => {
   const { type, label, options } = field
