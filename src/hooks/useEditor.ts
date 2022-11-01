@@ -1,19 +1,9 @@
 import React, { useState } from 'react'
 import { prettyPrint } from '../utils'
-import { FieldTypes } from '../interfaces'
 
-const defaultObject = {
-  title: 'My custom form',
-  buttons: ['OK', 'Cancel', 'Apply'],
-  items: [
-    {
-      label: 'count',
-      type: FieldTypes.NUMBER,
-    },
-  ],
-}
+import { defaultInputValue } from './defaults'
 
-const defaultJson = prettyPrint(JSON.stringify(defaultObject))
+const defaultJson = prettyPrint(JSON.stringify(defaultInputValue))
 
 export const useEditor = () => {
   const [jsonInput, setJsonInput] = useState(defaultJson)
