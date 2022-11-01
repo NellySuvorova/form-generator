@@ -7,6 +7,7 @@ interface IProps {
   isError: boolean
 }
 
+// todo add submit button or go to form control
 export const Editor: React.FC<IProps> = ({
   changeJsonInput,
   jsonInput,

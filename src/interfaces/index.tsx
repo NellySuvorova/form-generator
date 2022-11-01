@@ -1,6 +1,6 @@
 export enum TabTypes {
-  EDITOR = 'Editor',
-  FORM = 'Form',
+  EDITOR = 0,
+  FORM = 1,
 }
 
 export enum FieldTypes {

@@ -42,7 +42,7 @@ export const FormElement = ({ field }: { field: FormField }) => {
     case FieldTypes.RADIO:
       return (
         <RadioGroup>
-          <Stack spacing={4} direction="row">
+          <Stack spacing={2} direction="column">
             {options?.map((radio: string) => (
               <Radio value={radio} key={radio}>
                 {radio}
