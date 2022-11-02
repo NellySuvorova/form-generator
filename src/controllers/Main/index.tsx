@@ -12,9 +12,9 @@ export const Main = () => {
   const { changeTab } = useTabs()
 
   return (
-    <Tabs isFitted variant="unstyled" colorScheme="gray">
+    <Tabs isFitted variant="solid-rounded" colorScheme="gray">
       <Grid templateColumns="1fr 3fr" height="100vh">
-        <GridItem backgroundColor="rgb(51, 51, 51)" px="20px" pt="20px">
+        <GridItem backgroundColor="#323648" px="20px" pt="20px">
           <Navigation changeTab={changeTab} insertDataToInput={insertDataToInput} />
         </GridItem>
         <TabPanels>

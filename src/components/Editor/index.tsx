@@ -1,4 +1,4 @@
-import { HStack, Textarea, Heading } from '@chakra-ui/react'
+import { Textarea, Heading, HStack } from '@chakra-ui/react'
 
 interface IProps {
   changeJsonInput: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
@@ -23,7 +23,10 @@ export const Editor: React.FC<IProps> = ({
       onBlur={prettifyOnBlur}
       isInvalid={isError}
       variant="filled"
+      backgroundColor="white"
+      boxShadow="0 8px 48px -8px rgb(0 0 0 / 15%)"
       maxW={600}
+      borderRadius={10}
     />
   </HStack>
 )
