@@ -20,4 +20,6 @@ body {
 
 #root {
   width: 100%;
+  background-color: #f6f6f5;
+  color: #323648;
 }
