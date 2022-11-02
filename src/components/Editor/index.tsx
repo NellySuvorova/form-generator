@@ -1,4 +1,4 @@
-import { Box, Textarea } from '@chakra-ui/react'
+import { HStack, Textarea, Heading } from '@chakra-ui/react'
 
 interface IProps {
   changeJsonInput: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
@@ -7,21 +7,23 @@ interface IProps {
   isError: boolean
 }
 
-// todo add submit button or go to form control
 export const Editor: React.FC<IProps> = ({
   changeJsonInput,
   jsonInput,
   prettifyOnBlur,
   isError,
 }) => (
-  <Box mt="10">
+  <HStack py="20px" justifyContent="center" flexDirection="column">
+    <Heading mb="32px">Configure your form</Heading>
     <Textarea
-      cols={50}
-      rows={25}
+      size="sm"
+      rows={30}
       onChange={changeJsonInput}
       value={jsonInput}
       onBlur={prettifyOnBlur}
       isInvalid={isError}
+      variant="filled"
+      maxW={600}
     />
-  </Box>
+  </HStack>
 )
