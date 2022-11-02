@@ -21,15 +21,15 @@ export const FormElement = ({ field }: { field: FormField }) => {
   switch (type) {
     case FieldTypes.CHECKBOX:
       return (
-        <Checkbox id={label} size="lg">
+        <Checkbox id={label} size="lg" colorScheme="gray">
           {capitalizeFirstLetter(label)}
         </Checkbox>
       )
     case FieldTypes.TEXT:
-      return <Input id={label} />
+      return <Input id={label} colorScheme="gray" />
     case FieldTypes.NUMBER:
       return (
-        <NumberInput id={label}>
+        <NumberInput id={label} colorScheme="gray">
           <NumberInputField />
           <NumberInputStepper>
             <NumberIncrementStepper />
@@ -41,7 +41,7 @@ export const FormElement = ({ field }: { field: FormField }) => {
       return <input type="date" id={label} />
     case FieldTypes.RADIO:
       return (
-        <RadioGroup>
+        <RadioGroup colorScheme="gray">
           <Stack spacing={2} direction="column">
             {options?.map((radio: string) => (
               <Radio value={radio} key={radio}>
@@ -52,8 +52,8 @@ export const FormElement = ({ field }: { field: FormField }) => {
         </RadioGroup>
       )
     case FieldTypes.TEXTAREA:
-      return <Textarea id={label} />
+      return <Textarea id={label} colorScheme="gray" />
     default:
-      return <Input id={label} />
+      return <Input id={label} colorScheme="gray" />
   }
 }
