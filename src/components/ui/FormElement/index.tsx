@@ -34,7 +34,7 @@ export const FormElement = ({ field }: { field: FormField }) => {
         </Checkbox>
       )
     case FieldTypes.TEXT:
-      return <Input {...defaultProps} />
+      return <Input {...defaultProps} type="date" />
     case FieldTypes.NUMBER:
       return (
         <NumberInput {...defaultProps} focusBorderColor={defaultBorderColor}>
@@ -46,7 +46,7 @@ export const FormElement = ({ field }: { field: FormField }) => {
         </NumberInput>
       )
     case FieldTypes.DATE:
-      return <input type="date" id={label} />
+      return <Input {...defaultProps} type="date" />
     case FieldTypes.RADIO:
       return (
         <RadioGroup {...defaultProps}>
