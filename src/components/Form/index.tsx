@@ -3,17 +3,33 @@ import { Stack, Button, Text } from '@chakra-ui/react'
 import { FormElementContainer } from 'components/ui/FormElementContainer'
 import { FormElement } from 'components/ui/FormElement'
 
-import { formAdapter } from 'utils/form-adapter'
-import { FormField } from 'interfaces'
+import { FormField, FormConfig } from 'interfaces'
 
 interface IProps {
   jsonInput: string
+  parseJsonAndSetErrors: (jsonInput: string) => FormConfig | null
 }
 
-// не забыть плейсхолдеры?
-// у формы должен быть бэкграунд, не включающий тайтл и паддинг
-export const Form: React.FC<IProps> = ({ jsonInput }) => {
-  const { title, buttons, formFields } = formAdapter(jsonInput)
+export const Form: React.FC<IProps> = ({ jsonInput, parseJsonAndSetErrors }) => {
+  const adaptEditorDataForForm = (input: string) => {
+    const formConfig = parseJsonAndSetErrors(input)
+
+    if (!formConfig) {
+      return null
+    }
+
+    const { title, buttons, items } = formConfig as FormConfig
+
+    return { title, buttons, formFields: items }
+  }
+
+  const formData = adaptEditorDataForForm(jsonInput)
+
+  if (!formData) {
+    return <div>Please finish filling json</div>
+  }
+
+  const { title, buttons, formFields } = formData
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()

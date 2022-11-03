@@ -1,5 +1,4 @@
-export function prettyPrint(value: string) {
-  const obj = JSON.parse(value)
+export function prettyPrint(obj: any) {
   const formattedJson = JSON.stringify(obj, undefined, 4)
 
   return formattedJson

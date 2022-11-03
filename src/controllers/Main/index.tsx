@@ -8,7 +8,14 @@ import { useTabs } from './hooks/useTabs'
 
 // вынести обертки в ui слой
 export const Main = () => {
-  const { jsonInput, changeJsonInput, prettifyOnBlur, isError, insertDataToInput } = useEditor()
+  const {
+    jsonInput,
+    changeJsonInput,
+    prettifyOnBlur,
+    insertDataToInput,
+    parseJsonAndSetErrors,
+    isError,
+  } = useEditor()
   const { changeTab } = useTabs()
 
   return (
@@ -27,7 +34,7 @@ export const Main = () => {
             />
           </TabPanel>
           <TabPanel>
-            <Form jsonInput={jsonInput} />
+            <Form jsonInput={jsonInput} parseJsonAndSetErrors={parseJsonAndSetErrors} />
           </TabPanel>
         </TabPanels>
       </Grid>
