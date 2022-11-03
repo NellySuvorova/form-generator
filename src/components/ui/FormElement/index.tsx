@@ -15,31 +15,33 @@ import {
 import { capitalizeFirstLetter } from 'utils/capitalize-first-letter'
 import { FormField, FieldTypes } from 'interfaces'
 
-// вынести строки в константы
+const defaultBorderColor = 'rgb(51, 51, 51)'
+
 export const FormElement = ({ field }: { field: FormField }) => {
   const { type, label, options } = field
+
+  const defaultProps = {
+    id: label,
+    colorScheme: 'gray',
+    borderColor: defaultBorderColor,
+  }
 
   switch (type) {
     case FieldTypes.CHECKBOX:
       return (
-        <Checkbox id={label} size="lg" colorScheme="gray" borderColor="rgb(51, 51, 51)">
+        <Checkbox {...defaultProps} size="lg">
           {capitalizeFirstLetter(label)}
         </Checkbox>
       )
     case FieldTypes.TEXT:
-      return <Input id={label} colorScheme="gray" borderColor="rgb(51, 51, 51)" />
+      return <Input {...defaultProps} />
     case FieldTypes.NUMBER:
       return (
-        <NumberInput
-          id={label}
-          colorScheme="gray"
-          borderColor="rgb(51, 51, 51)"
-          focusBorderColor="rgb(51, 51, 51)"
-        >
+        <NumberInput {...defaultProps} focusBorderColor={defaultBorderColor}>
           <NumberInputField />
-          <NumberInputStepper borderColor="rgb(51, 51, 51)">
+          <NumberInputStepper borderColor={defaultBorderColor}>
             <NumberIncrementStepper />
-            <NumberDecrementStepper borderColor="rgb(51, 51, 51)" />
+            <NumberDecrementStepper borderColor={defaultBorderColor} />
           </NumberInputStepper>
         </NumberInput>
       )
@@ -47,10 +49,10 @@ export const FormElement = ({ field }: { field: FormField }) => {
       return <input type="date" id={label} />
     case FieldTypes.RADIO:
       return (
-        <RadioGroup colorScheme="gray" borderColor="rgb(51, 51, 51)">
+        <RadioGroup {...defaultProps}>
           <Stack spacing={2} direction="column">
             {options?.map((radio: string) => (
-              <Radio value={radio} key={radio} borderColor="rgb(51, 51, 51)">
+              <Radio value={radio} key={radio} borderColor={defaultBorderColor}>
                 {radio}
               </Radio>
             ))}
@@ -58,8 +60,8 @@ export const FormElement = ({ field }: { field: FormField }) => {
         </RadioGroup>
       )
     case FieldTypes.TEXTAREA:
-      return <Textarea id={label} colorScheme="gray" borderColor="rgb(51, 51, 51)" />
+      return <Textarea {...defaultProps} />
     default:
-      return <Input id={label} colorScheme="gray" borderColor="rgb(51, 51, 51)" />
+      return <Input {...defaultProps} />
   }
 }

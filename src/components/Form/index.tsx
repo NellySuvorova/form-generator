@@ -1,32 +1,20 @@
-import { Stack, Button, Text } from '@chakra-ui/react'
+import { Stack, Button, Text, Center } from '@chakra-ui/react'
 
 import { FormElementContainer } from 'components/ui/FormElementContainer'
 import { FormElement } from 'components/ui/FormElement'
 
-import { FormField, FormConfig } from 'interfaces'
+import { FormField } from 'interfaces'
+import { adaptEditorDataForForm } from './form-adapter'
 
 interface IProps {
   jsonInput: string
-  parseJsonAndSetErrors: (jsonInput: string) => FormConfig | null
 }
 
-export const Form: React.FC<IProps> = ({ jsonInput, parseJsonAndSetErrors }) => {
-  const adaptEditorDataForForm = (input: string) => {
-    const formConfig = parseJsonAndSetErrors(input)
-
-    if (!formConfig) {
-      return null
-    }
-
-    const { title, buttons, items } = formConfig as FormConfig
-
-    return { title, buttons, formFields: items }
-  }
-
+export const Form: React.FC<IProps> = ({ jsonInput }) => {
   const formData = adaptEditorDataForForm(jsonInput)
 
   if (!formData) {
-    return <div>Please finish filling json</div>
+    return <Center>Please finish filling json</Center>
   }
 
   const { title, buttons, formFields } = formData
