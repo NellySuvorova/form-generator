@@ -4,7 +4,7 @@ import { Grid, GridItem, Tabs, TabPanels, TabPanel } from '@chakra-ui/react'
 export const MainContainer = ({ children }: { children: React.ReactChild[] }) => (
   <Tabs isFitted variant="solid-rounded" colorScheme="gray">
     <Grid templateColumns="1fr 3fr" height="100vh">
-      <GridItem backgroundColor="#323648" px="20px" pt="20px">
+      <GridItem backgroundColor="#323648" px="20px" pt="20px" pb="30px">
         {children[0]}
       </GridItem>
       <TabPanels>

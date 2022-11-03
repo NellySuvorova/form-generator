@@ -4,15 +4,13 @@ import { FormElementContainer } from 'components/ui/FormElementContainer'
 import { FormElement } from 'components/ui/FormElement'
 
 import { FormField } from 'interfaces'
-import { adaptEditorDataForForm } from './form-adapter'
+import { BASE_SHADOW } from 'shared/constants'
 
 interface IProps {
-  jsonInput: string
+  formData?: { title: string; buttons: string[]; formFields: FormField[] }
 }
 
-export const Form: React.FC<IProps> = ({ jsonInput }) => {
-  const formData = adaptEditorDataForForm(jsonInput)
-
+export const Form: React.FC<IProps> = ({ formData }) => {
   if (!formData) {
     return <Center>Please finish filling json</Center>
   }
@@ -32,7 +30,7 @@ export const Form: React.FC<IProps> = ({ jsonInput }) => {
         borderRadius: '8px',
         margin: 'auto',
         marginTop: '100px',
-        boxShadow: '0 8px 48px -8px rgb(0 0 0 / 15%)',
+        boxShadow: BASE_SHADOW,
       }}
     >
       {title && (
