@@ -1,4 +1,4 @@
-import { TabList, Tab, Box, ListItem, UnorderedList, Text } from '@chakra-ui/react'
+import { TabList, Tab, Box, ListItem, UnorderedList, Heading } from '@chakra-ui/react'
 import { FieldTypes } from 'interfaces'
 
 interface IProps {
@@ -9,20 +9,18 @@ interface IProps {
 export const Navigation: React.FC<IProps> = ({ changeTab, insertDataToInput }) => {
   const componentsTypes = Object.values(FieldTypes)
 
+  const tabProps = { color: 'white', _selected: { color: 'white', bg: 'blue.500' } }
+
   return (
     <>
       <TabList onChange={changeTab}>
-        <Tab color="white" _selected={{ color: 'white', bg: 'blue.500' }}>
-          Editor
-        </Tab>
-        <Tab color="white" _selected={{ color: 'white', bg: 'blue.500' }}>
-          Form
-        </Tab>
+        <Tab {...tabProps}>Editor</Tab>
+        <Tab {...tabProps}>Form</Tab>
       </TabList>
       <Box mt="40px" color="white">
-        <Text size="xl" mb="10px" fontWeight="600">
+        <Heading size="sm" mb="10px">
           Components available:
-        </Text>
+        </Heading>
         <UnorderedList spacing="2">
           {componentsTypes.map((type: FieldTypes) => (
             <ListItem

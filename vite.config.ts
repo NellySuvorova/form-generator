@@ -12,6 +12,7 @@ export default defineConfig({
       utils: path.resolve(ROOT, 'utils'),
       components: path.resolve(ROOT, 'components'),
       controllers: path.resolve(ROOT, 'controllers'),
+      shared: path.resolve(ROOT, 'shared'),
     },
   },
 })

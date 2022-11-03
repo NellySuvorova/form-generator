@@ -20,7 +20,8 @@
       "interfaces": ["interfaces"],
       "utils": ["utils"],
       "components": ["components"],
-      "controllers": ["controllers"]
+      "controllers": ["controllers"],
+      "shared": ["shared"]
     }
   },
   "include": ["src"],
