@@ -16,10 +16,10 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #f6f6f5;
+  color: #323648;
 }
 
 #root {
   width: 100%;
-  background-color: #f6f6f5;
-  color: #323648;
 }

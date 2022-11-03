@@ -1,12 +1,15 @@
 import { TabList, Tab, Box, ListItem, UnorderedList, Heading } from '@chakra-ui/react'
 import { FieldTypes } from 'interfaces'
+import { Tips } from 'components/ui/Tips'
 
 interface IProps {
   changeTab: (tab: number) => void
   insertDataToInput: (tab: FieldTypes) => void
+  isError: boolean
+  tips?: string[]
 }
 
-export const Navigation: React.FC<IProps> = ({ changeTab, insertDataToInput }) => {
+export const Navigation: React.FC<IProps> = ({ changeTab, insertDataToInput, tips, isError }) => {
   const componentsTypes = Object.values(FieldTypes)
 
   const tabProps = { color: 'white', _selected: { color: 'white', bg: 'blue.500' } }
@@ -34,6 +37,7 @@ export const Navigation: React.FC<IProps> = ({ changeTab, insertDataToInput }) =
           ))}
         </UnorderedList>
       </Box>
+      <Tips tips={tips} isError={isError} />
     </>
   )
 }
