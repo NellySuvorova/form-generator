@@ -4,11 +4,27 @@ import { prettyPrint } from 'utils/pretty-print-json'
 
 import { defaultInputValue } from './defaults'
 
-const defaultJson = prettyPrint(JSON.stringify(defaultInputValue))
+const defaultJson = prettyPrint(defaultInputValue)
 
 export const useEditor = () => {
   const [jsonInput, setJsonInput] = useState(defaultJson)
   const [isError, setJsonError] = useState(false)
+
+  // разбить функции по отдельным контроллерам и хукам, разделить ответственность
+  function parseJsonAndSetErrors(jsonString: string) {
+    try {
+      const obj = JSON.parse(jsonString)
+
+      if (obj && typeof obj === 'object') {
+        setJsonError(false)
+        return obj
+      }
+    } catch (e) {
+      setJsonError(true)
+    }
+
+    return false
+  }
 
   const changeJsonInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target
@@ -16,13 +32,16 @@ export const useEditor = () => {
   }
 
   const prettifyOnBlur = () => {
-    try {
-      const prettyValue = prettyPrint(jsonInput)
-      setJsonError(false)
-      setJsonInput(prettyValue)
-    } catch {
+    const obj = parseJsonAndSetErrors(jsonInput)
+
+    if (!obj) {
       setJsonError(true)
+      return
     }
+    const prettyValue = prettyPrint(obj)
+    setJsonError(false)
+
+    setJsonInput(prettyValue)
   }
 
   const insertDataToInput = (type: FieldTypes) => {
@@ -41,7 +60,8 @@ export const useEditor = () => {
     changeJsonInput,
     jsonInput,
     prettifyOnBlur,
-    isError,
     insertDataToInput,
+    parseJsonAndSetErrors,
+    isError,
   }
 }
