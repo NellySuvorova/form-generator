@@ -1,9 +1,9 @@
 export function parseJsonObject(jsonString: string) {
   try {
-    const obj = JSON.parse(jsonString)
+    const objFromJson = JSON.parse(jsonString)
 
-    if (obj && typeof obj === 'object') {
-      return obj
+    if (objFromJson && typeof objFromJson === 'object') {
+      return objFromJson
     }
   } catch (e) {}
 
