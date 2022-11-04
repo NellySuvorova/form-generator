@@ -8,7 +8,7 @@ interface IProps {
   isError: boolean
 }
 
-const textAreaProps = {
+const textAreaStyle = {
   rows: 30,
   size: 'sm',
   variant: 'filled',
@@ -27,7 +27,7 @@ export const Editor: React.FC<IProps> = ({
   <HStack py="20px" justifyContent="center" flexDirection="column">
     <Heading mb="32px">Configure your form</Heading>
     <Textarea
-      {...textAreaProps}
+      {...textAreaStyle}
       onChange={changeJsonInput}
       value={jsonInput}
       onBlur={prettifyOnBlur}

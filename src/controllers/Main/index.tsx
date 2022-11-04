@@ -12,14 +12,14 @@ export const Main = () => {
 
   const { changeTab } = useTabs()
 
-  const adaptedData = useAdapter(jsonInput)
+  const convertationResult = useAdapter(jsonInput)
 
   return (
     <MainContainer>
       <Navigation
         changeTab={changeTab}
         insertDataToInput={insertDataToInput}
-        tips={adaptedData?.tips}
+        tips={convertationResult?.tips}
         isError={isError}
       />
       <Editor
@@ -28,7 +28,7 @@ export const Main = () => {
         prettifyOnBlur={prettifyOnBlur}
         isError={isError}
       />
-      <Form formData={adaptedData?.formData} />
+      <Form formData={convertationResult?.formData} />
     </MainContainer>
   )
 }
