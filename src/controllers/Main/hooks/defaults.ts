@@ -1,13 +1,15 @@
+import { FieldTypes } from 'interfaces'
+
 export const defaultInputValue = {
   title: 'My custom form',
   items: [
     {
       label: 'count',
-      type: 'number',
+      type: FieldTypes.NUMBER,
     },
     {
       label: 'radio',
-      type: 'radio',
+      type: FieldTypes.RADIO,
       options: ['One', 'Two'],
     },
   ],

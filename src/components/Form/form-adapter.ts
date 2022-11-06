@@ -1,8 +1,8 @@
-import { parseJsonObject } from 'utils/parse-json-object'
+import { parseJson } from 'utils/parse-json'
 import { FormConfig } from 'interfaces'
 
 export const adaptEditorDataForForm = (input: string) => {
-  const formConfig = parseJsonObject(input)
+  const formConfig = parseJson(input)
 
   if (!formConfig) {
     return null
