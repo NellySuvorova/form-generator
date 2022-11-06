@@ -13,5 +13,5 @@ npm run dev
 
 ## Contact me! (๑ↀᆺↀ๑)
 
-[Telegram](@NellySuvorova) or
+[Telegram](https://t.me/NellySuvorova) or
 [Linkedin](https://www.linkedin.com/in/nelly-suvorova/)
