@@ -18,13 +18,13 @@ export const useEditor = () => {
   }
 
   const prettifyOnBlur = () => {
-    const obj = parseJson(jsonInput)
+    const parsedJson = parseJson(jsonInput)
 
-    if (!obj) {
+    if (!parsedJson) {
       setJsonError(true)
       return
     }
-    const prettyValue = prettyPrint(obj)
+    const prettyValue = prettyPrint(parsedJson)
     setJsonError(false)
 
     setJsonInput(prettyValue)
