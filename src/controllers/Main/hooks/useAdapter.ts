@@ -1,10 +1,10 @@
-import { parseJsonObject } from 'utils/parse-json-object'
+import { parseJson } from 'utils/parse-json'
 import { findTips } from 'utils/find-tips'
 import { FormConfig } from 'interfaces'
 
 export const useAdapter = (input: string) => {
   const adaptEditorDataForForm = () => {
-    const formConfig = parseJsonObject(input)
+    const formConfig = parseJson(input)
 
     if (!formConfig) {
       return null

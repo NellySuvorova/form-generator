@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { FieldTypes } from 'interfaces'
 import { prettyPrint } from 'utils/pretty-print-json'
-import { parseJsonObject } from 'utils/parse-json-object'
+import { parseJson } from 'utils/parse-json'
 
 import { defaultInputValue } from './defaults'
 
@@ -18,7 +18,7 @@ export const useEditor = () => {
   }
 
   const prettifyOnBlur = () => {
-    const obj = parseJsonObject(jsonInput)
+    const obj = parseJson(jsonInput)
 
     if (!obj) {
       setJsonError(true)

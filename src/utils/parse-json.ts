@@ -1,4 +1,4 @@
-export function parseJsonObject(jsonString: string) {
+export function parseJson(jsonString: string) {
   try {
     const objFromJson = JSON.parse(jsonString)
 
