@@ -47,8 +47,8 @@ export const Form: React.FC<IProps> = ({ formData }) => {
           {title}
         </Text>
       )}
-      {formFields.map((field: FormField) => (
-        <FormElementContainer field={field}>
+      {formFields.map((field: FormField, index) => (
+        <FormElementContainer field={field} key={`${field}${index}`}>
           <FormElement field={field} />
         </FormElementContainer>
       ))}
